@@ -1,9 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – Erkenne den Song oder stirb</title>
+  <style>
+    body {
+      background: #121212;
+      color: white;
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
 
-<hr>
-<h2>🎵 Songsteuerung</h2>
-<input type="text" id="songUri" placeholder="Spotify Song URI" style="width:300px" />
-<button id="setSong">🎶 Song setzen & verbergen</button>
-<button id="revealSong">👁️ Song anzeigen</button>
-<button id="pauseSong">⏸️ Song pausieren</button>
-<button id="playSong">▶️ Song abspielen</button>
-<script type="module" src="./admin.js"></script>
+    h1 {
+      color: #e74c3c;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 1em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .controls {
+      margin-top: 30px;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+
+    .controls h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admin-Panel 🎛️</h1>
+
+  <!-- Spieler hinzufügen -->
+  <input type="text" id="playerName" placeholder="Spielername eingeben">
+  <button id="addPlayer">Spieler hinzufügen</button>
+
+  <!-- Spieler-Liste -->
+  <ul id="playersList"></ul>
+
+  <!-- Buzzer Reset -->
+  <button id="resetBuzzers">Buzzer zurücksetzen</button>
+
+  <div class="controls">
+    <h2>🎵 Songsteuerung (Spotify)</h2>
+    <input type="text" id="spotifyUri" placeholder="Spotify URI (z. B. spotify:track:...)">
+    <button id="playSong">Song abspielen</button>
+    <button id="pauseSong">Pausieren</button>
+    <button id="revealSong">Song anzeigen</button>
+  </div>
+
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>
