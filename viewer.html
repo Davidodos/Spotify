@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Erkenne den Song oder stirb</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #e74c3c;
+    }
+
+    #spotify-player {
+      margin: 30px auto;
+      display: none;
+    }
+
+    #reveal-button {
+      display: none;
+      margin-top: 20px;
+    }
+
+    ul#buzzedList {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    ul#buzzedList li {
+      background-color: #1f1f1f;
+      border: 1px solid #333;
+      padding: 15px;
+      margin: 10px auto;
+      width: 300px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 Erkenne den Song oder stirb 💀</h1>
+
+  <div id="spotify-player">
+    <iframe id="spotify-embed" style="border-radius:12px" src="" width="300" height="80" frameBorder="0" allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <h2>Buzz-Reihenfolge:</h2>
+  <ul id="buzzedList"></ul>
+
+  <script type="module" src="./viewer.js"></script>
+</body>
+</html>

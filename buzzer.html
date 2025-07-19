@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Buzzer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #121212;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 50px;
+    }
+
+    #buzzer {
+      font-size: 3em;
+      padding: 20px 40px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    #buzzer:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 Buzz oder stirb!</h1>
+  <button id="buzzer">Buzz!</button>
+
+  <script type="module" src="./buzzer.js"></script>
+</body>
+</html>

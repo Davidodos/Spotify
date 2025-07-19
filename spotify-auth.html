@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spotify Auth</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #121212;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+
+    button {
+      background: #1db954;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Spotify Login</h1>
+  <p>Klicke unten, um dich mit Spotify zu verbinden.</p>
+  <button id="loginBtn">Mit Spotify verbinden</button>
+
+  <script>
+    const clientId = '06cb9464e4bd470a95db1971258f2c6c'; // 👈 Spotify Client ID hier einfügen
+    const redirectUri = window.location.origin + '/spotify-auth.html'; // Muss mit Spotify Dashboard übereinstimmen
+    const scopes = [
+      'streaming',
+      'user-read-email',
+      'user-read-private',
+      'user-modify-playback-state',
+      'user-read-playback-state'
+    ];
+
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes.join(' '))}`;
+      window.location.href = authUrl;
+    });
+
+    // Token aus URL-Fragment extrahieren
+    function getTokenFromUrl() {
+      const hash = window.location.hash.substring(1);
+      const params = new URLSearchParams(hash);
+      const accessToken = params.get('access_token');
+      if (accessToken) {
+        localStorage.setItem('spotify_access_token', accessToken);
+        document.body.innerHTML = '<h2>Login erfolgreich!</h2><p>Du kannst das Fenster jetzt schließen.</p>';
+      }
+    }
+
+    getTokenFromUrl();
+  </script>
+</body>
+</html>
